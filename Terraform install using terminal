@@ -1,3 +1,14 @@
+First check that you pc is configer to ur aws or not 
+if not follow these steps 
+
+aws configure
+aws sts get-caller-identity
+give your access key then 
+secret key 
+then 
+check the teraform  version --
+
+
 go your directory 
 then 
 mkdir ec2
