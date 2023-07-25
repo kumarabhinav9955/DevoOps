@@ -46,6 +46,8 @@ terraform init (if fail try again 2 times )
 terraform plan
 terraform apply
 
+date 25-07-2023
+
 
 done your instance is ready name HELLO WORLD  
 you can check this in your ec2 instance 
