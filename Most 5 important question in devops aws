@@ -1,0 +1,63 @@
+1. AWS CLI Setup
+Write a bash script that installs the AWS Command Line Interface (CLI) on your local machine.
+
+2. S3 Bucket Creation
+Create a script that takes a bucket name as input and uses the AWS CLI to create an S3 bucket with that name.
+
+3. S3 File Upload
+Write a script that takes a local file path and an S3 bucket name as input, and then uses the AWS CLI to upload the file to the specified S3 bucket.
+
+4. EC2 Instance Management
+Create a bash script that uses the AWS CLI to list all running EC2 instances in a specific region, stop them, and then start them again.
+
+5. Security Group Management
+Write a script that lists all security groups in a specific AWS region using the AWS CLI and then allows users to add or remove inbound rules from a selected security group.
+
+solution are 
+Q1 CODE
+
+#!/bin/bash
+
+# Check if AWS CLI is installed
+if ! command -v aws &> /dev/null; then
+    echo "AWS CLI is not installed. Installing..."
+    # Check the package manager to use for installation
+    if command -v get &> /dev/null; then
+        sudo get install -y awscli
+    elif command -v apt-get &> /dev/null; then
+        sudo apt-get update
+        sudo apt-get install -y awscli
+    else
+        echo "Error: Unsupported package manager. Manual installation required."
+        exit 1
+    fi
+
+    # Check if installation was successful
+    if ! command -v aws &> /dev/null; then
+        echo "Error: AWS CLI installation failed. Please install it manually."
+        exit 1
+    else
+        echo "AWS CLI has been installed successfully."
+    fi
+else
+    echo "AWS CLI is already installed."
+fi
+
+
+
+Q2 CODE 
+#!/bin/bash
+read bucketname
+aws s3 mb s3://$bucketname
+aws s3 ls
+
+Q3 CODE 
+
+#!/bin/bash
+echo "Enter the file path"
+read path
+echo "Enter the name of s3 bucket"
+read name
+aws s3 cp $path s3://$name
+
+Q4 
