@@ -68,3 +68,11 @@ echo "Enter the region you want to check the instances"
 read location
 
 aws ec2 describe-instances --region $location
+
+Q5 CODE
+
+# !/bin/bash
+
+echo "Enter the region"
+read Region
+aws ec2 describe-security-groups --region $Region
