@@ -60,4 +60,11 @@ echo "Enter the name of s3 bucket"
 read name
 aws s3 cp $path s3://$name
 
-Q4 
+Q4 CODE
+
+# !bin/bash
+
+echo "Enter the region you want to check the instances"
+read location
+
+aws ec2 describe-instances --region $location
