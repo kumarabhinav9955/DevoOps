@@ -1,0 +1,64 @@
+Question 1:
+You are working on a project that requires you to automate the backup process of files to an Amazon S3 
+bucket using a Bash script. Write a Bash script that takes two command-line arguments: the source 
+directory and the S3 bucket name. The script should compress all the files in the source directory into a 
+single tarball, upload it to the specified S3 bucket, and then remove the local tarball to save space. 
+Additionally, the script should log the backup process, including the timestamp and any errors 
+encountered, to a log file named “backup.log” in the same directory as the script. Assume you have 
+already installed and configured the AWS Command Line Interface (CLI) on your system.
+Your script should:
+Check if the AWS CLI is installed and accessible from the command line.
+Check if the provided source directory exists and is accessible.
+Check if the provided S3 bucket exists and is accessible.
+Create a compressed tarball of all files in the source directory.
+Upload the tarball to the specified S3 bucket using the AWS CLI.
+Remove the local tarball after successful upload.
+Log the backup process, including timestamps and any errors, to a log file named “backup.log” in the 
+same directory as the script.
+Please provide the Bash script that accomplishes the above tasks.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!ANSWERS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#!/bin/bash
+
+# Check if the AWS CLI is installed and accessible
+if ! command -v aws &>/dev/null; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: AWS CLI is not installed or not accessible." >> backup.log
+  exit 1
+fi
+
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 2 ]; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: Usage: $0 <source_directory> <s3_bucket_name>" >> backup.log
+  exit 1
+fi
+
+source_directory=$1
+s3_bucket=$2
+tarball_name="backup_$(date '+%Y%m%d%H%M%S').tar.gz"
+
+# Check if the source directory exists and is accessible
+if [ ! -d "$source_directory" ]; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: Source directory not found or not accessible." >> backup.log
+  exit 1
+fi
+
+# Check if the S3 bucket exists and is accessible
+if ! aws s3 ls "s3://$s3_bucket" &>/dev/null; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: S3 bucket not found or not accessible." >> backup.log
+  exit 1
+fi
+
+# Create a compressed tarball of all files in the source directory
+tar -czvf "$tarball_name" -C "$source_directory" .
+
+# Upload the tarball to the specified S3 bucket using the AWS CLI
+aws s3 cp "$tarball_name" "s3://$s3_bucket/"
+
+# Check if the upload was successful
+if [ "$?" -eq 0 ]; then
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - Backup uploaded successfully to S3 bucket '$s3_bucket'." >> backup.log
+  # Remove the local tarball after successful upload
+  rm "$tarball_name"
+else
+  echo "$(date '+%Y-%m-%d %H:%M:%S') - Error: Backup upload to S3 bucket failed." >> backup.log
+fi
