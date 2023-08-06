@@ -1,0 +1,32 @@
+Create a 2 VMs and a shell script called prepare_servers. The script when run 
+updates the system, removes openssh (if installed), installs openssh, copies the 
+public keys, then ssh the other system. Once run the script should end with a ssh 
+prompt to the other system. Use variables to define the host and user names
+
+
+#!/bin/bash
+
+# Define the host names and user names
+HOST1="vm1"
+HOST2="vm2"
+USER="bard"
+
+# Update the system
+sudo apt update
+sudo apt upgrade
+
+# Remove openssh if installed
+if [ -x "$(command -v openssh)" ]; then
+  sudo apt remove openssh-server openssh-client
+fi
+
+# Install openssh
+sudo apt install openssh-server openssh-client
+
+# Copy the public keys
+ssh-copy-id -i ~/.ssh/id_rsa.pub $USER@$HOST1
+ssh-copy-id -i ~/.ssh/id_rsa.pub $USER@$HOST2
+
+# SSH to the other system
+ssh $USER@$HOST2
+
