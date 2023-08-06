@@ -1,0 +1,20 @@
+Write a simple script to take the system backup and store it in a tar.gz archive. 
+Change the archive permission to user_read_only. Schedule a cronjob so that the 
+script run everyday at 1 am.
+
+#!/bin/bash
+
+# Get the current date and time
+date=$(date +%Y-%m-%d-%H-%M)
+
+# Create the backup archive
+tar -cvzf backup-$date.tar.gz /
+
+# Change the archive permission to user_read_only
+chmod 444 backup-$date.tar.gz
+
+# Schedule the script to run everyday at 1 am
+crontab -e
+
+# Add the following line to the crontab file
+0 1 * * * /path/to/backup.sh
