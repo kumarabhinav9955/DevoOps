@@ -1,0 +1,22 @@
+write a bash script to create an iam user and attach ec2 full access,s3 full access,iam full access,
+vpc full access and administrator access
+
+#!/bin/bash
+
+# Get the user's input
+read -p "Enter the user's name: " username
+read -s -p "Enter the user's password: " password
+
+# Create the user
+aws iam create-user --user-name $username
+
+# Attach the policies
+aws iam attach-user-policy --user-name $username --policy-arn arn:aws:iam::aws:policy/AmazonEC2FullAccess
+aws iam attach-user-policy --user-name $username --policy-arn arn:aws:iam::aws:policy/AmazonS3FullAccess
+aws iam attach-user-policy --user-name $username --policy-arn arn:aws:iam::aws:policy/IAMFullAccess
+aws iam attach-user-policy --user-name $username --policy-arn arn:aws:iam::aws:policy/AmazonVPCFullAccess
+aws iam attach-user-policy --user-name $username --policy-arn arn:aws:iam::aws:policy/AdministratorAccess
+
+# Print the user's ARN
+echo "The user's ARN is: "
+aws iam get-user --user-name $username --output text
