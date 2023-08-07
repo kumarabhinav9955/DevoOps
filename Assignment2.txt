@@ -1,0 +1,72 @@
+1.What does S3 stand for in AWS? 
+Simple Storage Service
+2.Which AWS service provides a scalable and fully managed database? 
+AWS RDS (Relational Database Service)
+3.What AWS service would you use to host a static website? 
+AWS S3 (Simple Storage Service)
+4.Which AWS service is used for load balancing incoming application traffic across multiple targets? 
+AWS Elastic Load Balancing (ELB)
+5.What does IAM stand for in AWS? 
+Identity and Access Management
+6.Which AWS compute service is designed for running Docker containers? 
+AWS ECS (Elastic Container Service)
+7.What AWS service is used for sending emails to customers? 
+AWS SNS
+8.Which AWS database service is best suited for data warehousing and business intelligence workloads? 
+AWS Redshift
+
+9.Which AWS service can be used to monitor and collect log data from AWS resources and applications?* 
+AWS CloudWatch
+10.In AWS, what does VPC stand for? 
+Virtual Private Clouds
+11.Which AWS service provides a way to set up private connections between a VPC and on-premises data centers? 
+AWS Direct Connect
+
+12.What AWS service can be used to deploy serverless applications and functions? 
+AWS Lambda
+13.Which AWS storage service is best suited for long-term archival of data? 
+AWS S3 Glacier
+14.Which AWS storage service is best suited for long-term archival of data? 
+
+AWS S3 Glacier
+15.Which AWS service is used to automatically provision and manage AWS infrastructure using code? 
+
+AWS CloudFormation
+16.Amazon EC2 is a service that provides: 
+Virtual servers in the cloud
+
+17.Which of the following is NOT a valid EC2 instance type? 
+x1.nano
+18.What is the maximum object size that can be stored in Amazon S3? 
+5 TB!!!!!!!!!!!!
+
+19.Which Amazon S3 storage class is suitable for infrequently accessed data but requires rapid access when needed? 
+S3 Intelligent-Tiering
+20.Each subnet in a VPC can have its own route table. 
+TRUE
+21.What is the private IPv4 address range for a default VPC in Amazon VPC? 
+172.31.0.0/16
+22.Which AWS service allows you to connect your VPC to your own on-premises network using a hardware VPN or Direct Connect? 
+AWS Direct Connect
+23.How many Elastic IP addresses can you associate with an EC2 instance by default? 
+5
+24.When you stop an EC2 instance, what happens to the data on its root volume? 
+
+The data remains intact on the root volume.
+25.Which AWS service allows you to set up automatic scaling of EC2 instances based on demand? 
+Amazon Auto Scaling
+26.Subnetting is a method used to: 
+Divide a single large network into smaller ones
+27.What is the maximum number of subnets that can be created within a VPC? 
+
+200
+28.When creating a custom VPC, what is the range of IP addresses that you can use for the CIDR block? 
+It can be any valid IPv4 CIDR block of your choice.
+29.How many types of storage gateways are there? 
+
+3
+ 30.How many types of reserved instances are there? 
+
+3
+
+

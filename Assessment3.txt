@@ -1,0 +1,96 @@
+1.Which of the following layers of the OSI model is responsible for routing and forwarding packets?
+Network Layer
+
+2.What is the primary function of a DNS server in computer networking?
+ Translating Domain names to IP addresses
+
+3.Which networking protocol is commonly used for securely transferring files between remote systems?
+
+FTP
+4.In TCP/IP networking, what is the default subnet mask for a Class C IP address?
+255.255.255.0
+
+5.Which network topology connects each device to a central hub?
+STAR
+
+6.In Terraform, what is the purpose of a "provider"?
+ to define the infrastructure components
+
+7.Which Terraform command is used to create and update resources as per the configuration?
+terraform apply
+
+8.What is the main benefit of using Terraform in infrastructure provisioning?
+it automates the provisioning and management of resource 
+
+9.How does Terraform maintain state information about the infrastructure?
+
+in local configure files 
+10.Which configuration file in Terraform defines the infrastructure resources and their configurations?
+Main.tf
+
+11.What is Docker used for in DevOps?
+
+Containerizing and running applications
+
+12.What is the purpose of a Dockerfile?
+to define the instructions for building a docker image
+
+
+13.In Docker, what is a container volume used for?
+sharing data between the host andf the container
+
+14.How does Docker Hub facilitate the Docker container ecosystem?
+it is a cloud platfom for hosting docker containers and images
+
+15.Which Docker command is used to run a container in the background?
+docker run
+
+
+16.What is the primary purpose of Kubernetes in DevOps?
+
+orchestrating and managing containerized applications
+17.Which Kubernetes object ensures that a specified number of pod replicas are running at all times?
+
+reolicationCountroller
+
+18.What is the role of a "Node" in a Kubernetes cluster?
+To run and manage containerized applications
+
+
+19.What Kubernetes feature allows you to automatically scale the number of pod replicas based on CPU utilization?
+ Horizontalpodautoscaler
+
+20.What Kubernetes feature allows you to automatically scale the number of pod replicas based on CPU utilization?
+To define the cpu and memory resources for a pod
+
+21.Which protocol is responsible for dynamically assigning IP addresses to devices on a network?
+DHCP
+
+22.What is the purpose of a default gateway in computer networking?
+to connect device in diffennt vlans
+
+23.In Terraform, what is the purpose of a "variable"?
+TO INPUT VALUES INTO THE TERRAFORM CONFIGURATION
+
+24.Which command is used to remove resources created by Terraform?
+Terraform destroy
+
+25.What is the purpose of a Docker image registry?
+to store and distrubute docker images to multiple enviroments 
+
+26.How does Docker networking allow communication between containers in different networks?
+
+By creating user-defined networks and attaching containers to them.
+27.What is the primary purpose of a Kubernetes "ConfigMap"?
+To manage the configuration
+settings for applications running
+in pods
+
+28.How does Kubernetes achieve high availability for applications?
+BY USING A LOAD BALANCER TO DISTRIBUTE traffic to multiple replicas
+
+29.What is the primary benefit of using Kubernetes Deployments over Pods directly?
+development automaticaly scale based on cpu utilization
+
+30.How does Kubernetes manage containerized applications on different nodes in a cluster?
+by deploying pods on specific nodes based on resource avalability
